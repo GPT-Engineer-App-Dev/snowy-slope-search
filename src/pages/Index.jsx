@@ -12,10 +12,7 @@ const Index = () => {
     <Container maxW="container.xl" p={5}>
       <Flex direction="column" align="center" justify="center" minH="100vh">
         <Heading mb={10}>Discover Ski Resorts in Sweden</Heading>
-        <Box w="full" h="300px" bg="gray.200" mb={8}>
-          {/* Placeholder for map */}
-          <Text p={4}>Map integration coming soon...</Text>
-        </Box>
+        
         <VStack spacing={5} align="stretch">
           <Heading size="lg">Featured Resorts</Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
