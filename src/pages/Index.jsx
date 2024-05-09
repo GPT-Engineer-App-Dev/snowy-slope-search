@@ -1,18 +1,37 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text, VStack, Link, SimpleGrid } from "@chakra-ui/react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+const resorts = [
+  { name: "Åre", description: "Sweden's largest ski area with a variety of slopes and vibrant après-ski culture.", link: "https://www.skistar.com/en/myskistar/destination/are/" },
+  { name: "Sälen", description: "Popular family-friendly resort offering a range of slopes and winter activities.", link: "https://www.skistar.com/en/myskistar/destination/salen/" },
+  { name: "Vemdalen", description: "Known for its scenic views and well-groomed slopes, perfect for both beginners and advanced skiers.", link: "https://www.skistar.com/en/myskistar/destination/vemdalen/" }
+];
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
+    <Container maxW="container.xl" p={5}>
+      <Flex direction="column" align="center" justify="center" minH="100vh">
+        <Heading mb={10}>Discover Ski Resorts in Sweden</Heading>
+        <Box w="full" h="300px" bg="gray.200" mb={8}>
+          {/* Placeholder for map */}
+          <Text p={4}>Map integration coming soon...</Text>
+        </Box>
+        <VStack spacing={5} align="stretch">
+          <Heading size="lg">Featured Resorts</Heading>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+            {resorts.map((resort, index) => (
+              <Box key={index} p={5} shadow="md" borderWidth="1px" borderRadius="lg">
+                <Heading size="md">{resort.name}</Heading>
+                <Text mt={2}>{resort.description}</Text>
+                <Link href={resort.link} isExternal color="teal.500" mt={2} display="flex" alignItems="center">
+                  <FaMapMarkerAlt />
+                  <Text ml={2}>Visit website</Text>
+                </Link>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </VStack>
+      </Flex>
     </Container>
   );
 };
